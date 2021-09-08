@@ -1,0 +1,15 @@
+﻿version: '3.8'
+
+services:
+
+  db:
+    image: postgres:12.7
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: aswf
+      POSTGRES_PASSWORD: sqlworkshop
+      POSTGRES_DB: sqlworkshop
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
